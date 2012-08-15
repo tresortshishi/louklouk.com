@@ -12,7 +12,21 @@ $current_layout = $options['theme_layout'];
 
 if ( 'content' != $current_layout ) :
 ?>
-		<div id="secondary" class="widget-area" role="complementary">
+		<div id="sidebar" class="widget-area" role="complementary">
+        <div class="search">
+        	<form action="" method="get">
+            	<fieldset>
+               	  <input name="" class="fieldsearch" type="text" dir="ltr" />
+                  <input name="" class="buttonsearch" type="button" value="RECHERCHER" />
+                </fieldset>
+            </form>
+        </div>
+				<img src="<?php bloginfo('stylesheet_directory')?>/img/teaser-ing.png" width="195" height="168" alt="#" />
+  				<img src="<?php bloginfo('stylesheet_directory')?>/img/img-advertise1.jpg" width="195" height="162" alt="#" /></div>
+			<hr />
+            
+		<div class="push">
+        </div>
 <!-- hacked by Trésor Tshishi 15/04/2012
 			<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 

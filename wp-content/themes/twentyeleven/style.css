@@ -71,10 +71,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	padding: 0 2em;
 }
-#page {
+/*#page {
 	margin: 0 auto;
 	width: 970px;
-}
+}*/
 #branding hgroup {
 	height: 111px;
 }

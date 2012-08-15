@@ -47,6 +47,11 @@
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<!-- adding François tacoen stylesheet  14-08-2012 -->
+
+<link rel="stylesheet" type="text/css" media="all" href="http://127.0.0.1/louklouk/wp-content/themes/twentyeleven/main-2.css"/>
+
+
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
@@ -69,7 +74,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed">
-	<header id="branding" role="banner">
+	<header id="navmain" role="banner">
 			<hgroup>
 				<h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
 				<!--<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>-->
@@ -120,4 +125,4 @@
 	</header><!-- #branding -->
 
 
-	<div id="main">
+	<div id="container">

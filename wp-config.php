@@ -21,25 +21,9 @@ define('DB_NAME', 'louklouk');
 /** MySQL database username */
 define('DB_USER', 'root');
 
+/** MySQL database password */
+define('DB_PASSWORD', 'root');
 
-/*
-Hack Tresor Tshishi 2012-07-13
-	config switcher
-
-
-*/
-
-	if(gethostname()=="ubuntu")
-	{
-		/** MySQL database password */
-		define('DB_PASSWORD', 'tresor');
-
-	}
-	else
-	{
-		/** MySQL database password */
-		define('DB_PASSWORD', 'root');
-	}
 
 
 /** MySQL hostname */
@@ -50,7 +34,6 @@ define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
-
 
 /**#@+
  * Authentication Unique Keys and Salts.
