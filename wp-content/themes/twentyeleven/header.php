@@ -56,6 +56,22 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
+
+<script src="js/jquery-1.5.1.min.js" type="text/javascript"></script>
+<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/main.js" type="text/javascript"></script>
+
+
+
+
+<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/cufon-yui.js" type="text/javascript"></script>
+<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/Helvetica_Neue_LT_Pro_500-Helvetica_Neue_LT_Pro_700.font.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+			Cufon.replace('h2');
+			Cufon.replace('.tools a');
+    </script>
+
+
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
@@ -75,10 +91,10 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed">
 	<header id="navmain" role="banner">
-			<hgroup>
-				<h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
+			<!--<hgroup>-->
+				<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span>Louk Louk</span></a></h1>
 				<!--<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>-->
-			</hgroup>
+			<!--</hgroup>-->
 
 			<?php
 				// Check to see if the header image has been removed
@@ -115,7 +131,8 @@
 			<?php endif; ?>
 
 			<nav id="access" role="navigation">
-				<h3 class="assistive-text"><?php _e( 'Main menu', 'twentyeleven' ); ?></h3>
+            
+				<!--<h3 class="assistive-text"><?php _e( 'Main menu', 'twentyeleven' ); ?></h3>-->
 				<?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff. */ ?>
 				<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
 				<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to secondary content', 'twentyeleven' ); ?></a></div>

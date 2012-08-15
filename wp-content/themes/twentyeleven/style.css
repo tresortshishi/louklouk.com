@@ -506,10 +506,10 @@ a:hover {
 	position: relative;
 	z-index: 9999;
 }
-#site-title {
+/*#site-title {
  	background: url(img/logo-louklouk.png) no-repeat 0 0;
  	height: 77px;
-}
+}*/
 #site-title span {
 	position: absolute;
 	top: -5000px;

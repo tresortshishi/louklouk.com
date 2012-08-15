@@ -146,6 +146,13 @@ body {
 h1 {
 	margin: 0;
 	padding: 0;
+	background: url(img/logo-louklouk.png) no-repeat 0 0;
+ 	height: 77px;
+}
+
+h1 span {
+	position: absolute;
+	top: -5000px;
 }
 
 h2 {
