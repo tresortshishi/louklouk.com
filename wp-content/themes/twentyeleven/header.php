@@ -49,7 +49,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <!-- adding François tacoen stylesheet  14-08-2012 -->
 
-<link rel="stylesheet" type="text/css" media="all" href="http://127.0.0.1/louklouk/wp-content/themes/twentyeleven/main-2.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/main-2.css"/>
 
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />

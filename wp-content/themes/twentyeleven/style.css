@@ -86,10 +86,10 @@ body {
 	margin: 0 -26.4% 0 0;
 	width: 100%;
 }
-#content {
+/*#content {
 	margin: 0 34% 0 7.6%;
 	width: 58.4%;
-}
+}*/
 #secondary {
 	float: right;
 	margin-right: 7.6%;
@@ -322,9 +322,9 @@ body, input, textarea {
 body {
 	background: url("img/background-banner.png") repeat-x scroll 0 0 transparent;
 }
-#page {
+/*#page {
 	background: #fff;
-}
+}*/
 
 /* Headings */
 h1,h2,h3,h4,h5,h6 {
@@ -2474,9 +2474,9 @@ p.comment-form-comment {
 	body {
 		padding: 0;
 	}
-	#page {
+	/*#page {
 		margin-top: 0;
-	}
+	}*/
 	#branding {
 		border-top: none;
 	}
@@ -2496,13 +2496,13 @@ p.comment-form-comment {
 	footer.entry-meta a[rel=bookmark]:visited:after {
 		content: " [" attr(href) "] "; /* Show URLs */
 	}
-	#page {
+	/*#page {
 		clear: both !important;
 		display: block !important;
 		float: none !important;
 		max-width: 100%;
 		position: relative !important;
-	}
+	}*/
 	#branding {
 		border-top: none !important;
 		padding: 0;

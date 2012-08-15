@@ -51,17 +51,17 @@ get_header(); ?>
         	<h2>Derniers inscrits</h2>
             	<div>
                     <ul>
-                    <li><img src="img/logo-randstad.png" alt="logo randstad" /></li>
-                    <li><img src="img/logo-bacardi.png" alt="logo bacardi" /></li>
-                    <li><img src="img/logo-rtbf.png" alt="logo rtbf" /></li>
-                    <li><img src="img/logo-sncb.png" alt="logo sncb" /></li>
+                    <li><img src="<?php bloginfo('stylesheet_directory')?>/img/logo-randstad.png" alt="logo randstad" /></li>
+                    <li><img src="<?php bloginfo('stylesheet_directory')?>/img/logo-bacardi.png" alt="logo bacardi" /></li>
+                    <li><img src="<?php bloginfo('stylesheet_directory')?>/img/logo-rtbf.png" alt="logo rtbf" /></li>
+                    <li><img src="<?php bloginfo('stylesheet_directory')?>/img/logo-sncb.png" alt="logo sncb" /></li>
                     </ul>
             	</div>
             
             	<div class="clearfix"></div>
             
-            		<a class="prev" id="foo2_prev" href="#"><img src="img/arrow-left-gal-company.png" width="18" height="38" alt="previous" /><span>prev</span></a>
-            		<a class="next" id="foo2_next" href="#"><img src="img/arrow-right-gal-company.png" width="18" height="38" alt="next" /><span>next</span></a>
+            		<a class="prev" id="foo2_prev" href="#"><img src="<?php bloginfo('stylesheet_directory')?>/img/arrow-left-gal-company.png" width="18" height="38" alt="previous" /><span>prev</span></a>
+            		<a class="next" id="foo2_next" href="#"><img src="<?php bloginfo('stylesheet_directory')?>/img/arrow-right-gal-company.png" width="18" height="38" alt="next" /><span>next</span></a>
 	    
 				</div>
       		<hr />
@@ -73,7 +73,7 @@ get_header(); ?>
           			<h2>Événements</h2>
                      <ul>
                         <li>
-                        	<img src="img/img-event.png" width="103" height="94" alt="pic" />
+                        	<img src="<?php bloginfo('stylesheet_directory')?>/img/img-event.png" width="103" height="94" alt="pic" />
 							<h3>Bourse aux projet</h3>
                             	<span>
                                 	
@@ -86,7 +86,7 @@ get_header(); ?>
                                 <hr />
                         </li>
                         <li>
-                        	<img src="img/img-event.png" width="103" height="94" alt="pic" />
+                        	<img src="<?php bloginfo('stylesheet_directory')?>/img/img-event.png" width="103" height="94" alt="pic" />
 							<h3>19ème Salon de l’emploi et de la création d’activités</h3>
                             	<span>
                                 	
@@ -112,14 +112,14 @@ get_header(); ?>
                                     type: <strong>vente occasion</strong><br />
                                     Lots de bureaux contemporains + chaises en tissu.
                                    </span>
-                                 <img src="img/img-advertise.jpg" width="235" height="96" alt="bureaux" />                             
+                                 <img src="<?php bloginfo('stylesheet_directory')?>/img/img-advertise.jpg" width="235" height="96" alt="bureaux" />                             
                                </li>
                                <li>
                                    <span>
                                     type: <strong>vente occasion</strong><br />
                                     Lots de bureaux contemporains + chaises en tissu. L'ensemble pour un prix hors concurrence.
                                    </span>
-                                 <img src="img/img-advertise.jpg" width="235" height="96" alt="bureaux" />                             
+                                 <img src="<?php bloginfo('stylesheet_directory')?>/img/img-advertise.jpg" width="235" height="96" alt="bureaux" />                             
                                </li>
                             </ul>
                  
