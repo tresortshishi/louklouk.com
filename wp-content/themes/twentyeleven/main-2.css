@@ -201,11 +201,11 @@ form.formslog {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 495px;
+	width: 465px;
 }
 
 form.formslog fieldset {
-	padding: 20px 11px 0;
+	padding: 20px 0 0;
 	margin: 0;
 	border: 0;
 }
@@ -224,7 +224,7 @@ form.formslog fieldset .fieldlog {
 }
 
 form.formslog fieldset .buttonlog {
-	width: 79px;
+	width: 45px;
 	height: 25px;
 	background: url(img/hand-register.png) no-repeat 0 0;
 }
@@ -247,7 +247,7 @@ form.formslog fieldset .buttonlog {
 ul.topnav {  
      list-style: none;  
 	 position: absolute;
-	 top: 83px;
+	 top: 79px;
 	 right: 15px;
      padding: 0;  
      margin: 0; 
@@ -377,7 +377,7 @@ ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 
 #content .boxinscription h2, #content .boxfan h2 {
 	margin: 0;
-	padding: 20px 0 8px;
+	padding: 6px 0 8px;
 }
 
 .boxinscription ul, .boxfan ul {
@@ -437,13 +437,13 @@ ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 
 #content .image_carousel .prev {
 	position: absolute;
-	top: 120px;
+	top: 135px;
 }
 
 #content .image_carousel .next {
 	position: absolute;
 	right: 75px;
-	top: 120px;
+	top: 135px;
 }
 
 .info {

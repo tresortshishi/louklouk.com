@@ -130,15 +130,30 @@
 				<?php get_search_form(); ?>
 			<?php endif; ?>
 
-			<nav id="access" role="navigation">
+			<form action="" method="get" class="formslog">
+		    	<fieldset>
+                    <input name="" class="fieldlog" type="text" size="150" maxlength="150" />
+                    <input name="" class="fieldlog" type="password" size="150" maxlength="20" />
+                    <input name="" class="buttonlog" type="button" />
+        		</fieldset>
+    		</form>
             
-				<!--<h3 class="assistive-text"><?php _e( 'Main menu', 'twentyeleven' ); ?></h3>-->
+            
+            <ul class="topnav">
+                <li><em><a href="#">démo</a></em></li>
+                <li><em><a href="#">prix</a></em></li>
+                <li><em><a href="search.htm">recherche avancée</a></em></li>
+                <li><em><a href="events" class="navend">événements</a></em></li>
+    		</ul>
+            <!--<nav id="access" role="navigation">
+            
+				<h3 class="assistive-text"><?php _e( 'Main menu', 'twentyeleven' ); ?></h3>
 				<?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff. */ ?>
 				<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
 				<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to secondary content', 'twentyeleven' ); ?></a></div>
 				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu. The menu assiged to the primary position is the one used. If none is assigned, the menu with the lowest ID is used. */ ?>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-			</nav><!-- #access -->
+			</nav>--><!-- #access -->
 	</header><!-- #branding -->
 
 
