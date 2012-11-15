@@ -1,0 +1,13 @@
+Fixes applied in PHPlists:
+* admin/connect.php: added a class to "Powered by" image
+* index.php: moved hardcoded styling for div.adminmessage to zing.css
+* config/config.php: various changes
+* admin/defaultconfig.inc: modified default links for mailing list messages (unsubscribe, etc)
+* admin/FCKEditor/editor/fckeditor.html: changed location of Loadscript
+* admin/FCKEditor: fixed bug in phplist where phpxml tags are used instead of xml tags
+* admin/header.inc: modified look and feel
+* admin/styles/phplist.css: adapted styles to fit with Wordpress
+* config/config.php: disabled Test mode
+* config/header.inc: modified look and feel
+* config/footer.inc: modified look and feel
+* styles/phplist.css: adapted styles to fit with Wordpress
