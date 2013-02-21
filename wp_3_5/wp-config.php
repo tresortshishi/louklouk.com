@@ -72,6 +72,19 @@ $table_prefix  = 'wp_';
 define('WPLANG', '');
 
 /**
+*Trésor Tshishi
+*
+*Allow multisite
+*
+*/
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', false);
+define('DOMAIN_CURRENT_SITE', 'www.louklouk.local');
+define('PATH_CURRENT_SITE', '/');
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
+
+/**
  * For developers: WordPress debugging mode.
  *
  * Change this to true to enable the display of notices during development.
