@@ -1,0 +1,22 @@
+*** discover Changelog ***
+
+12-06-2013 - version 1.7.3
+* <div class="clear"></div> in element-box.php
+* Unwanted code removed from js/jquery.custom.js file
+* Menu drop down made faster
+* Option added in theme options panel to on/off slider caption
+
+27-05-2013 - version 1.7.2
+* template-home page added. (Read readme.txt file for more)
+
+24-05-2013 - version 1.7
+* License file updated
+* Blog posts shown on home by default.
+
+23-05-2013 - version 1.6
+* Box images not shown in IE(Internet explorer) Fixed.
+* New settings color and custom style added in theme options.
+
+10-05-2013 - version 1.5
+* Warning: Cannot modify header information - headers already sent by fixed.
+* esc_url added on line 53 in template-blog.php
