@@ -1,6 +1,8 @@
 <?php
 /**
  * @package llk_registration
+ * @author  Trésor Kadnolo Tshishi 
+ * @since   wp 3.5 
  * @version 0.1
  */
 /*
@@ -11,6 +13,15 @@ Author: Tshishi Kandolo Trésor
 Version: 0.1
 Author URI: http://twitter.com/goosy13
 */
+
+define('WP_DEBUG',true);
+define('LLK_REGISTRATION_VERSION','0.1');
+define('LLK_REGISTRATION_CURRENT_PATH_THEME',get_theme_root().'/'.get_template());
+define( 'LLK_REGISTRATION_PATH', plugin_dir_path(__FILE__) );
+
+add_action( 'admin_init', 'init_table' );
+add_shortcode('llk_registration','llk_registration_form') ;
+add_shortcode('llk_registration_form_chooser','llk_registration_form_chooser') ;
 
 
 //create enterprise table if not exist
@@ -55,19 +66,83 @@ dbDelta( $sql );
 
 }
 
-add_action( 'admin_init', 'init_table' );
 
-//add menu "enterprise " in admin dashboard
 
-add_action( 'admin_menu', 'register_my_custom_menu_page' );
+// set short code to render forms
 
-function register_my_custom_menu_page(){
-   // add_menu_page( 'custom menu title', 'custom menu', 'manage_options', str_replace(site_url(), '', plugins_url('llk-registration/admin_pages/index.php')) /*, 'my_custom_menu_page', plugins_url( 'myplugin/images/icon.png' ), 6 */); 
-    add_menu_page( 'custom menu title', 'custom menu', 'manage_options', 'edit.php' /*, 'my_custom_menu_page', plugins_url( 'myplugin/images/icon.png' ), 6 */); 
+/**
+ *  Display registration form
+ *
+ */
+function llk_registration_form(){
+  return "test llk_registration" ;
 }
 
-function my_custom_menu_page(){
-    echo "Admin Page Test";	
+/**
+ * Form chooser
+ *
+ */
+
+function llk_registration_form_chooser(){
+
+ $current_title_page = ucfirst(get_query_var('pagename'));//current page title
+ $chooser = '<h2>'.$current_title_page.'</h2>
+     <form action="" method="get">
+            <label>Faite votre choix</label>
+                  <select name="type" size="1" dir="ltr" id="sign_type">
+                    <option>---</option>
+                    <option>Membres</option>
+                    <option>Entreprise</option>
+                   </select>  
+      </form>';
+         
+
+  return  $chooser ;
 }
+
+function add_this_script_footer(){
+    ?>
+  <script src="<?php echo plugins_url('llk-registration/js/registration.js') ?>"></script>
+
+  <?php } 
+
+add_action('wp_footer', 'add_this_script_footer'); 
+
+//load_template( dirname( __FILE__ ) . '/templates/some-template.php' );
+
+//load template for company post
+
+function load_company_template(){
+  if(file_exists(LLK_REGISTRATION_CURRENT_PATH_THEME.'/archive-company.php')){
+    load_template(LLK_REGISTRATION_CURRENT_PATH_THEME.'/archive-company.php');
+  }else{
+    load_template( dirname( __FILE__ ) . '/templates/archive-company.php' );
+  }
+
+  
+}
+
+do_action('after_setup_theme','load_company_template');
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//      Admin manager
+//
+/////////////////////////////////////////////////////////////////////////////
+
+require_once(LLK_REGISTRATION_PATH.'admin_manager.php');
+
+// test function
+
+function test()
+{
+  require_once(LLK_REGISTRATION_PATH.'models/model_interface.php');
+  require_once(LLK_REGISTRATION_PATH.'models/model_user.php');
+  $wp_user_mdl = new Model_user();
+  echo $wp_user_mdl->post_type;
+  $wp_user_mdl->add(array());
+}
+
+add_action('admin_init','test');
 
 ?>

@@ -1,1 +1,0 @@
-<h1>Pobieranie nag³ówków RSS</h1>
