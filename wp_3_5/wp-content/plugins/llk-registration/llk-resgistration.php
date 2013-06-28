@@ -22,6 +22,19 @@ define( 'LLK_REGISTRATION_PATH', plugin_dir_path(__FILE__) );
 add_action( 'admin_init', 'init_table' );
 add_shortcode('llk_registration','llk_registration_form') ;
 add_shortcode('llk_registration_form_chooser','llk_registration_form_chooser') ;
+register_activation_hook( __FILE__, 'add_user_role_customer' );
+
+/**
+ * add new user role
+ *
+ */
+
+function add_user_role_customer()
+{
+  add_role('customer', 'Customer', array(
+    'read' => true
+  ));
+}
 
 
 //create enterprise table if not exist
@@ -74,8 +87,66 @@ dbDelta( $sql );
  *  Display registration form
  *
  */
-function llk_registration_form(){
-  return "test llk_registration" ;
+function llk_registration_form()
+{
+  //echo language_attributes();
+  $current_lg = 'en';
+   ?>
+    <form action="" method="post" id="registration">
+    <?php     
+
+      
+      //get signing type action (user /enterprise/ enterprise_confirmation)
+      $type = @$_REQUEST['type'];
+      
+
+      switch ($type) {
+        case 'user_sign':
+        //add new user
+          //if ($current_lg!==""){        
+            if(file_exists(LLK_REGISTRATION_PATH.'forms/register_user/'.$current_lg.'/'.'register_user.php')){
+            require(LLK_REGISTRATION_PATH.'forms/register_user/'.$current_lg.'/'.'register_user.php');
+              }
+          //}
+        
+          break;
+        case 'user_add':
+              add_subcribers();
+        break;
+        case 'entreprise_sign':
+        //add enterprise sign in waiting queue
+          //if ($current_lg!==""){        
+            if(file_exists(LLK_REGISTRATION_PATH.'forms/register_enterprise/'.'register_entreprise.php')){
+            
+            require(LLK_REGISTRATION_PATH.'forms/labels/'.$current_lg.'/'.'register_enterprise.php');
+            //echo get_template_directory().'/forms/labels/'.$current_lg.'/'.'register_enterprise.php';
+            //load labels translation
+            if(isset($labels_register_enterprise)){
+              // call enterprise forms
+              require(LLK_REGISTRATION_PATH.'/forms/register_enterprise/'.'register_entreprise.php');
+
+            }
+              }
+        
+          break;
+        case 'entreprise_add' :
+          // add new enterprise
+          add_company_customer();
+
+        break;
+        case 'enteprise_confirmation':
+        //confirmation of enterprise owner to create enterprise article and blog
+          # code...
+          break;
+
+        default:
+
+        //
+          break;
+      }
+    ?>
+    </form>
+    <?php
 }
 
 /**
@@ -85,19 +156,20 @@ function llk_registration_form(){
 
 function llk_registration_form_chooser(){
 
- $current_title_page = ucfirst(get_query_var('pagename'));//current page title
- $chooser = '<h2>'.$current_title_page.'</h2>
-     <form action="" method="get">
+ $current_title_page  = ucfirst(get_query_var('pagename'));//current page title
+   
+  ?>
+    <form action="" method="get">
+      
             <label>Faite votre choix</label>
                   <select name="type" size="1" dir="ltr" id="sign_type">
-                    <option>---</option>
-                    <option>Membres</option>
-                    <option>Entreprise</option>
+                    <option value="">---</option>
+                    <option value="Membres">Membres1</option>
+                    <option value="Entreprise">Entreprise1</option>
                    </select>  
-      </form>';
-         
-
-  return  $chooser ;
+    </form>
+  <?php
+  
 }
 
 function add_this_script_footer(){
@@ -124,6 +196,16 @@ function load_company_template(){
 
 do_action('after_setup_theme','load_company_template');
 
+add_filter('editable_roles', function($roles){
+
+  // sort alphabetically (ignores case)
+  usort($roles, function($a, $b){
+    return strcasecmp($a["name"], $b["name"]);
+  });   
+
+  return $roles;
+});
+
 /////////////////////////////////////////////////////////////////////////////
 //
 //      Admin manager
@@ -132,17 +214,128 @@ do_action('after_setup_theme','load_company_template');
 
 require_once(LLK_REGISTRATION_PATH.'admin_manager.php');
 
+
+///////////////////////////////////////////////////////////////////////////
+//
+//    Front actions
+//
+//
+///////////////////////////////////////////////////////////////////////////
+
+/**
+ *
+ *
+ *
+ * @since 0.1
+ * @return void
+ */
+function add_subcribers()
+{
+  require_once(LLK_REGISTRATION_PATH.'classes/user.php');
+
+  if(isset($_POST)){
+    if(isset($_POST['action']) && ($_POST['action'] == 'add_subcribers')){
+      $new_user             = new User();
+      $new_user->name       = $_POST['name'];
+      $new_user->lastname   = $_POST['firstname'];
+      $new_user->login      = $_POST['login'];
+      $new_user->password   = $_POST['password'];
+      $new_user->email      = $_POST['email'];
+      $new_user->add_user();
+    }
+  }
+
+}
+
+/**
+ * Add new customer user and create new post compy
+ * @since 0.1
+ * @return void
+ */
+
+function add_company_customer()
+{
+    require_once(LLK_REGISTRATION_PATH.'classes/user.php');
+    require_once(LLK_REGISTRATION_PATH.'classes/company.php');
+    $rand = rand();
+    $new_company = new Company();
+    $new_company->name = 'name'.$rand;
+    $new_company->description = 'description'.$rand;
+  
+    $new_company->adress = 'adress'.$rand;
+    $new_company->number = 'description'.$rand;
+    $new_company->zip_code = 'zip_code'.$rand;
+    $new_company->country = 'country'.$rand;
+    $new_company->phone_number = 'phone_number'.$rand;
+    $new_company->blog_name = 'blog_name'.$rand;
+    $new_company->blog_title = 'blog_title'.$rand;
+    $new_company->activation_code = 'activation_code'.$rand;
+
+
+    $new_user             = new User();
+    $new_user->name       = 'testname'.$rand;
+    $new_user->lastname   = 'test-lastname'.$rand;
+    $new_user->login      = 'test_login'.$rand;
+    $new_user->password   = 'test_password'.$rand;
+    $new_user->email      = $new_user->name.'@test.com';
+
+    $new_company->register($new_user);
+
+}
+
 // test function
 
 function test()
 {
-  require_once(LLK_REGISTRATION_PATH.'models/model_interface.php');
-  require_once(LLK_REGISTRATION_PATH.'models/model_user.php');
-  $wp_user_mdl = new Model_user();
-  echo $wp_user_mdl->post_type;
-  $wp_user_mdl->add(array());
+  
+  require_once(LLK_REGISTRATION_PATH.'classes/user.php');
+  require_once(LLK_REGISTRATION_PATH.'classes/company.php');
+  $rand = rand();
+  $new_company = new Company();
+  $new_company->name = 'name'.$rand;
+  $new_company->description = 'description'.$rand;
+  /*
+      'adress',
+                'number',
+                'zip_code',
+                'country',
+                'phone_number',
+                'blog_name',
+                'blog_title',
+                'activation_code',
+    */
+     $new_company->adress = 'adress'.$rand;
+     $new_company->number = 'description'.$rand;
+     $new_company->zip_code = 'zip_code'.$rand;
+     $new_company->country = 'country'.$rand;
+     $new_company->phone_number = 'phone_number'.$rand;
+     $new_company->blog_name = 'blog_name'.$rand;
+     $new_company->blog_title = 'blog_title'.$rand;
+     $new_company->activation_code = 'activation_code'.$rand;
+
+
+    $new_user             = new User();
+    $new_user->name       = 'testname'.$rand;
+    $new_user->lastname   = 'test-lastname'.$rand;
+    $new_user->login      = 'test_login'.$rand;
+    $new_user->password   = 'test_password'.$rand;
+    $new_user->email      = $new_user->name.'@test.com';
+
+    $new_company->register($new_user);
+ 
+  /*$new_company->owner_id        = $new_user->add_owner();
+
+  $new_company->add_company();*/
+ /* $new_company->adress = 'test-adress';
+  $fields = $new_company->company_mdl->custom_fields;
+  $fields = 'adress';
+  var_dump($new_company->$fields);
+  add_post_meta(153, 'test-key1', 'test-value1',true);
+  */
+  
+
 }
 
-add_action('admin_init','test');
+add_action('admin_init','test',100);
 
 ?>

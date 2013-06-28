@@ -7,7 +7,7 @@ document.getElementById("sign_type").onchange = function(){
 	
 	var url_path = location.protocol + '//' + location.host + location.pathname;
 
-	
+	console.log(type);
 		if(type == "Membres"){
 			url_path = url_path+"/?type=user_sign";
 			 document.location.href=url_path; 

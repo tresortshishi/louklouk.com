@@ -40,7 +40,8 @@ function my_custom_menu_page(){
  * @return void
  */
 
-function create_company_post_type() {
+function create_company_post_type() 
+{
 
   $labels = array(
         'name' => __( 'Companies' ),
@@ -68,19 +69,48 @@ function create_company_post_type() {
       // show in admin bar menu
       'show_in_admin_bar' => true,
       'has_archive' => true,
-      'supports'=> array('title','editor','excerpt','author','thumbnail','page-attributes','custom-fields')
+      'supports'=> array('title','editor','excerpt','author','thumbnail','page-attributes','custom-fields'),
+      //custom post type categores
+      'taxonomies'=>array('fr','en','nl')
     )
   );
 
 //create taxonomy and category for new post type "company"
-  register_taxonomy( 'cat_company', 'company', array( 'hierarchical' => true, 'label' => 'Category company', 'query_var' => true, 'rewrite' => true ) );  
+  add_categories();
+  add_tags();
+  
 
 
   
 }
+/**
+ * Custom post type 'Company' uses categories
+ * @since 0.1
+ *
+ */
+
+function add_categories()
+{
+  register_taxonomy( 'cat_company', 'company', array( 'hierarchical' => true, 'label' => 'Category company', 'query_var' => true, 'rewrite' => true ) );  
+}
+
+/**
+ * Custom post type 'Company' uses tags
+ * @since 0.1
+ * 
+ */
+
+function add_tags()
+{
+  register_taxonomy( 'tag_company', 'company', array( 'hierarchical' => false, 'label' => 'Tags company', 'query_var' => true, 'rewrite' => true ) );  
+}
 
 // add custom columns
-
+/**
+ * Add custom columns to company list table
+ * @since 0.1
+ *
+ */
 function company_add_columns($columns)
 {
   /*
