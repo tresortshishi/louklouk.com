@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+ 
+ ServerName www.louk-louk.local
+
+ DocumentRoot /var/www/projects/louklouk.com/wp_3_5
+ ErrorLog /var/www/projects/louklouk.com/wp_3_5/error.log
+ CustomLog /var/www/projects/louklouk.com/wp_3_5/access.log combined
+</VirtualHost>
+<Directory "/var/www/projects/louklouk.com/wp_3_5">
+ DirectoryIndex index.php index.php3 index.html index.htm
+ Options -Indexes FollowSymlinks
+
+ Order allow,deny
+ Allow from all
+</Directory>
